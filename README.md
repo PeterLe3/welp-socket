@@ -4,7 +4,7 @@ welp-socket is our node express server used to handle chat between users in same
 
 ## Installation
 
-Download [npm](https://www.npmjs.com/get-npm) and [nodejs](https://www.npmjs.com/get-npm).
+Download [npm](https://www.npmjs.com/get-npm), [nodemon](https://www.npmjs.com/package/nodemon) and [nodejs](https://www.npmjs.com/get-npm).
 
 ## Run locally
 
