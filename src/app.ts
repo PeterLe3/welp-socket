@@ -53,8 +53,12 @@ io.on('connect', (socket: socketio.Socket) => {
       console.log('joining game');
       rooms[gameID].addPlayer(player);
 
+      const playerList = rooms[gameID]
+        .getPlayers()
+        .map((player) => player.username);
       io.to(gameID).emit('player-joined', {
         gameID: gameID,
+        players: playerList,
       });
       console.log(io.sockets.adapter.rooms);
     }

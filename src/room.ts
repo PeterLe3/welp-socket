@@ -26,11 +26,11 @@ export default class Room {
     this.socket.join(this.gameID); //using socket#id of the user who creates the room
     this.players.push(player);
 
+    const playerList = this.players.map((player) => player.username);
     this.io.to(this.gameID).emit('game-created', {
       gameID: this.gameID,
-      //players: this.io.sockets.adapter.rooms,
+      players: playerList,
     });
-
     console.log(this.io.sockets.adapter.rooms);
   }
 
