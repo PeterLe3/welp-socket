@@ -97,13 +97,11 @@
         console.log('showing players');
       });
 
-      socket.on('created', function (payload) {
+      socket.on('game-created', function (payload) {
         var item = document.createElement('li');
         var players = document.createElement('li');
-        item.textContent = payload.msg;
-        players.textContent = payload.players;
+        item.textContent = payload.gameID;
         messages.appendChild(item);
-        messages.appendChild(players);
         window.scrollTo(0, document.body.scrollHeight);
       });
 
