@@ -56,6 +56,7 @@ io.on('connect', (socket: socketio.Socket) => {
       const playerList = rooms[gameID]
         .getPlayers()
         .map((player) => player.username);
+
       io.to(gameID).emit('player-joined', {
         gameID: gameID,
         players: playerList,
@@ -66,6 +67,10 @@ io.on('connect', (socket: socketio.Socket) => {
     // players.forEach((player) => {
     //   console.log(player.username);
     // });
+  });
+
+  socket.on('start-game', (gameID) => {
+    io.to(gameID).emit('start-game', { isRestaurant: true, isStarted: true });
   });
 
   socket.on('disconnect', () => {
